@@ -311,29 +311,30 @@ const schedule = {
             { start: 2, end: 5, status: 'maybe' },
             { start: 5, end: 6, status: 'on' },
             { start: 6, end: 9, status: 'off' },
-            { start: 9, end: 11, status: 'maybe' },
-            { start: 11, end: 16, status: 'on' },
-            { start: 16, end: 18, status: 'off' },
-            { start: 18, end: 24, status: 'maybe' }
+            { start: 9, end: 12, status: 'maybe' },
+            { start: 12, end: 15, status: 'on' },
+            { start: 15, end: 18, status: 'off' },
+            { start: 18, end: 21, status: 'maybe' },
+            { start: 21, end: 24, status: 'on' }
         ],
         "Вівторок": [
             { start: 0, end: 3, status: 'off' },
             { start: 3, end: 6, status: 'maybe' },
-            { start: 6, end: 10, status: 'on' },
-            { start: 10, end: 13, status: 'off' },
-            { start: 13, end: 16, status: 'maybe' },
-            { start: 16, end: 19, status: 'on' },
-            { start: 19, end: 22, status: 'off' },
-            { start: 22, end: 24, status: 'maybe' }
+            { start: 6, end: 9, status: 'on' },
+            { start: 9, end: 12, status: 'off' },
+            { start: 12, end: 15, status: 'maybe' },
+            { start: 15, end: 18, status: 'on' },
+            { start: 18, end: 21, status: 'off' },
+            { start: 21, end: 24, status: 'maybe' }
         ],
         "Середа": [
-            { start: 0, end: 2, status: 'on' },
-            { start: 2, end: 5, status: 'off' },
-            { start: 5, end: 8, status: 'maybe' },
-            { start: 8, end: 13, status: 'on' },
-            { start: 13, end: 16, status: 'off' },
-            { start: 16, end: 19, status: 'maybe' },
-            { start: 19, end: 21, status: 'on' },
+            { start: 0, end: 3, status: 'on' },
+            { start: 3, end: 6, status: 'off' },
+            { start: 6, end: 9, status: 'maybe' },
+            { start: 9, end: 12, status: 'on' },
+            { start: 12, end: 15, status: 'off' },
+            { start: 15, end: 18, status: 'maybe' },
+            { start: 18, end: 21, status: 'on' },
             { start: 21, end: 24, status: 'off' }
         ],
         "Четвер": [
@@ -341,29 +342,29 @@ const schedule = {
             { start: 3, end: 6, status: 'on' },
             { start: 6, end: 9, status: 'off' },
             { start: 9, end: 12, status: 'maybe' },
-            { start: 12, end: 16, status: 'on' },
-            { start: 16, end: 19, status: 'off' },
-            { start: 19, end: 22, status: 'maybe' },
-            { start: 22, end: 24, status: 'on' }
+            { start: 12, end: 15, status: 'on' },
+            { start: 15, end: 18, status: 'off' },
+            { start: 18, end: 21, status: 'maybe' },
+            { start: 21, end: 24, status: 'on' }
         ],
         "П'ятниця": [
             { start: 0, end: 3, status: 'off' },
             { start: 3, end: 6, status: 'maybe' },
-            { start: 6, end: 10, status: 'on' },
-            { start: 10, end: 13, status: 'off' },
-            { start: 13, end: 16, status: 'maybe' },
-            { start: 16, end: 19, status: 'on' },
-            { start: 19, end: 22, status: 'off' },
-            { start: 22, end: 24, status: 'maybe' }
+            { start: 6, end: 9, status: 'on' },
+            { start: 9, end: 12, status: 'off' },
+            { start: 12, end: 15, status: 'maybe' },
+            { start: 15, end: 18, status: 'on' },
+            { start: 18, end: 21, status: 'off' },
+            { start: 21, end: 24, status: 'maybe' }
         ],
         "Субота": [
-            { start: 0, end: 2, status: 'on' },
-            { start: 2, end: 5, status: 'off' },
-            { start: 5, end: 8, status: 'maybe' },
-            { start: 8, end: 13, status: 'on' },
-            { start: 13, end: 16, status: 'off' },
-            { start: 16, end: 19, status: 'maybe' },
-            { start: 19, end: 21, status: 'on' },
+            { start: 0, end: 3, status: 'on' },
+            { start: 3, end: 6, status: 'off' },
+            { start: 6, end: 9, status: 'maybe' },
+            { start: 9, end: 12, status: 'on' },
+            { start: 12, end: 15, status: 'off' },
+            { start: 15, end: 18, status: 'maybe' },
+            { start: 18, end: 21, status: 'on' },
             { start: 21, end: 24, status: 'off' }
         ],
         "Неділя": [
@@ -371,10 +372,10 @@ const schedule = {
             { start: 3, end: 6, status: 'on' },
             { start: 6, end: 9, status: 'off' },
             { start: 9, end: 12, status: 'maybe' },
-            { start: 12, end: 16, status: 'on' },
-            { start: 16, end: 19, status: 'off' },
-            { start: 19, end: 22, status: 'maybe' },
-            { start: 22, end: 24, status: 'on' }
+            { start: 12, end: 15, status: 'on' },
+            { start: 15, end: 18, status: 'off' },
+            { start: 18, end: 21, status: 'maybe' },
+            { start: 21, end: 24, status: 'on' }
         ]
     },
     "Група 6": {

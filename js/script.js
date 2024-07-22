@@ -520,6 +520,7 @@ function updateTimeline() {
     updateCurrentPhase(currentGroup, currentDay, currentHour);
 }
 
+
 function updateCurrentPhase(group, day, currentHour) {
     const currentPhaseElement = document.getElementById('currentPhase');
     const currentPhase = getCurrentPhase(group, day, currentHour);
@@ -536,7 +537,7 @@ function updateCurrentPhase(group, day, currentHour) {
             <div class="progress-bar">
                 <div class="progress ${current.status}" style="width: ${((current.end - currentHour) / (current.end - current.start)) * 100}%"></div>
             </div>
-            <p>До наступної фази "${getPhaseEmoji(next.status)} ${nextStatusText}": ${formatTime(remaining)}</p>
+            <p>Наступна фаза: ${getPhaseEmoji(next.status)} ${nextStatusText}</p>
         `;
     } else {
         currentPhaseElement.innerHTML = '<p>Немає даних про поточну фазу</p>';

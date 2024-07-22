@@ -159,10 +159,10 @@ const schedule = {
             { start: 3, end: 4, status: 'on' },
             { start: 4, end: 6, status: 'off' },
             { start: 6, end: 9, status: 'maybe' },
-            { start: 9, end: 13, status: 'on' },
-            { start: 13, end: 16, status: 'off' },
-            { start: 16, end: 19, status: 'maybe' },
-            { start: 19, end: 21, status: 'on' },
+            { start: 9, end: 12, status: 'on' },
+            { start: 12, end: 15, status: 'off' },
+            { start: 15, end: 18, status: 'maybe' },
+            { start: 18, end: 21, status: 'on' },
             { start: 21, end: 24, status: 'off' }
         ],
         "Вівторок": [
@@ -178,10 +178,10 @@ const schedule = {
         "Середа": [
             { start: 0, end: 3, status: 'off' },
             { start: 3, end: 6, status: 'maybe' },
-            { start: 6, end: 10, status: 'on' },
-            { start: 10, end: 13, status: 'off' },
-            { start: 13, end: 16, status: 'maybe' },
-            { start: 16, end: 18, status: 'on' },
+            { start: 6, end: 9, status: 'on' },
+            { start: 9, end: 12, status: 'off' },
+            { start: 12, end: 15, status: 'maybe' },
+            { start: 15, end: 18, status: 'on' },
             { start: 18, end: 21, status: 'off' },
             { start: 21, end: 24, status: 'maybe' }
         ],
@@ -189,10 +189,10 @@ const schedule = {
             { start: 0, end: 3, status: 'on' },
             { start: 3, end: 6, status: 'off' },
             { start: 6, end: 9, status: 'maybe' },
-            { start: 9, end: 13, status: 'on' },
-            { start: 13, end: 16, status: 'off' },
-            { start: 16, end: 19, status: 'maybe' },
-            { start: 19, end: 21, status: 'on' },
+            { start: 9, end: 12, status: 'on' },
+            { start: 12, end: 15, status: 'off' },
+            { start: 15, end: 18, status: 'maybe' },
+            { start: 18, end: 21, status: 'on' },
             { start: 21, end: 24, status: 'off' }
         ],
         "П'ятниця": [
@@ -208,10 +208,10 @@ const schedule = {
         "Субота": [
             { start: 0, end: 3, status: 'off' },
             { start: 3, end: 6, status: 'maybe' },
-            { start: 6, end: 10, status: 'on' },
-            { start: 10, end: 13, status: 'off' },
-            { start: 13, end: 16, status: 'maybe' },
-            { start: 16, end: 18, status: 'on' },
+            { start: 6, end: 9, status: 'on' },
+            { start: 9, end: 12, status: 'off' },
+            { start: 12, end: 15, status: 'maybe' },
+            { start: 15, end: 18, status: 'on' },
             { start: 18, end: 21, status: 'off' },
             { start: 21, end: 24, status: 'maybe' }
         ],
@@ -219,10 +219,10 @@ const schedule = {
             { start: 0, end: 3, status: 'on' },
             { start: 3, end: 6, status: 'off' },
             { start: 6, end: 9, status: 'maybe' },
-            { start: 9, end: 13, status: 'on' },
-            { start: 13, end: 16, status: 'off' },
-            { start: 16, end: 19, status: 'maybe' },
-            { start: 19, end: 21, status: 'on' },
+            { start: 9, end: 12, status: 'on' },
+            { start: 12, end: 15, status: 'off' },
+            { start: 15, end: 18, status: 'maybe' },
+            { start: 18, end: 21, status: 'on' },
             { start: 21, end: 24, status: 'off' }
         ]
     },

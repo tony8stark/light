@@ -459,97 +459,113 @@ const schedule = {
     }
 };
 
-        function formatTime(hours) {
-            const h = Math.floor(hours);
-            const m = Math.round((hours - h) * 60);
-            return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+function formatTime(hours) {
+    const h = Math.floor(hours);
+    const m = Math.round((hours - h) * 60);
+    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+}
+
+function getPhaseEmoji(status) {
+    switch(status) {
+        case 'on': return '💡';
+        case 'off': return '🕯️';
+        case 'maybe': return '❓';
+        default: return '';
+    }
+}
+
+function getCurrentPhase(group, day, currentHour) {
+    const daySchedule = schedule[group][day];
+    for (let phase of daySchedule) {
+        if (currentHour >= phase.start && currentHour < phase.end) {
+            const remainingTime = phase.end - currentHour;
+            const nextPhase = daySchedule.find(p => p.start === phase.end) || daySchedule[0];
+            return {
+                current: phase,
+                remaining: remainingTime,
+                next: nextPhase
+            };
         }
+    }
+    return null;
+}
 
-        function getPhaseEmoji(status) {
-            switch(status) {
-                case 'on': return '💡';
-                case 'off': return '🕯️';
-                case 'maybe': return '❓';
-                default: return '';
-            }
-        }
+function updateTimeline() {
+    const timeline = document.getElementById('timeline');
+    timeline.innerHTML = '';
+    const currentGroup = document.getElementById('groupSelect').value;
+    const currentDay = document.getElementById('daySelect').value;
+    const now = new Date();
+    const currentHour = now.getHours() + now.getMinutes() / 60;
 
-        function getCurrentPhase(day, currentHour) {
-            const daySchedule = schedule[day];
-            for (let phase of daySchedule) {
-                if (currentHour >= phase.start && currentHour < phase.end) {
-                    const remainingTime = phase.end - currentHour;
-                    const nextPhase = daySchedule.find(p => p.start === phase.end) || daySchedule[0];
-                    return {
-                        current: phase,
-                        remaining: remainingTime,
-                        next: nextPhase
-                    };
-                }
-            }
-            return null;
-        }
+    schedule[currentGroup][currentDay].forEach(phase => {
+        const phaseElement = document.createElement('div');
+        phaseElement.className = `phase ${phase.status}`;
+        phaseElement.style.left = `${(phase.start / 24) * 100}%`;
+        phaseElement.style.width = `${((phase.end - phase.start) / 24) * 100}%`;
+        timeline.appendChild(phaseElement);
+    });
 
-        function updateTimeline() {
-            const timeline = document.getElementById('timeline');
-            timeline.innerHTML = '';
-            const currentDay = document.getElementById('daySelect').value;
-            const now = new Date();
-            const currentHour = now.getHours() + now.getMinutes() / 60;
+    const currentTimeElement = document.createElement('div');
+    currentTimeElement.className = 'current-time';
+    currentTimeElement.style.left = `${(currentHour / 24) * 100}%`;
+    timeline.appendChild(currentTimeElement);
 
-            schedule[currentDay].forEach(phase => {
-                const phaseElement = document.createElement('div');
-                phaseElement.className = `phase ${phase.status}`;
-                phaseElement.style.left = `${(phase.start / 24) * 100}%`;
-                phaseElement.style.width = `${((phase.end - phase.start) / 24) * 100}%`;
-                timeline.appendChild(phaseElement);
-            });
+    updateCurrentPhase(currentGroup, currentDay, currentHour);
+}
 
-            const currentTimeElement = document.createElement('div');
-            currentTimeElement.className = 'current-time';
-            currentTimeElement.style.left = `${(currentHour / 24) * 100}%`;
-            timeline.appendChild(currentTimeElement);
+function updateCurrentPhase(group, day, currentHour) {
+    const currentPhaseElement = document.getElementById('currentPhase');
+    const currentPhase = getCurrentPhase(group, day, currentHour);
 
-            updateCurrentPhase(currentDay, currentHour);
-        }
+    if (currentPhase) {
+        const { current, remaining, next } = currentPhase;
+        const statusText = current.status === 'on' ? 'Світло є' :
+                           current.status === 'off' ? 'Світла немає' : 'Можливе включення';
+        const nextStatusText = next.status === 'on' ? 'Світло є' :
+                               next.status === 'off' ? 'Світла немає' : 'Можливе включення';
 
-        function updateCurrentPhase(day, currentHour) {
-            const currentPhaseElement = document.getElementById('currentPhase');
-            const currentPhase = getCurrentPhase(day, currentHour);
+        currentPhaseElement.innerHTML = `
+            <h3>Поточна фаза: ${getPhaseEmoji(current.status)} ${statusText}</h3>
+            <div class="progress-bar">
+                <div class="progress ${current.status}" style="width: ${((current.end - currentHour) / (current.end - current.start)) * 100}%"></div>
+            </div>
+            <p>До наступної фази "${getPhaseEmoji(next.status)} ${nextStatusText}": ${formatTime(remaining)}</p>
+        `;
+    } else {
+        currentPhaseElement.innerHTML = '<p>Немає даних про поточну фазу</p>';
+    }
+}
 
-            if (currentPhase) {
-                const { current, remaining, next } = currentPhase;
-                const statusText = current.status === 'on' ? 'Світло є' :
-                                   current.status === 'off' ? 'Світла немає' : 'Можливе включення';
-                const nextStatusText = next.status === 'on' ? 'Світло є' :
-                                       next.status === 'off' ? 'Світла немає' : 'Можливе включення';
+function initializeApp() {
+    const groupSelect = document.getElementById('groupSelect');
+    const daySelect = document.getElementById('daySelect');
+    
+    // Populate group select
+    Object.keys(schedule).forEach(group => {
+        const option = document.createElement('option');
+        option.value = group;
+        option.textContent = group;
+        groupSelect.appendChild(option);
+    });
 
-                currentPhaseElement.innerHTML = `
-                    <h3>Поточна фаза: ${getPhaseEmoji(current.status)} ${statusText}</h3>
-                    <div class="progress-bar">
-                        <div class="progress ${current.status}" style="width: ${((current.end - currentHour) / (current.end - current.start)) * 100}%"></div>
-                    </div>
-                    <p>До наступної фази "${getPhaseEmoji(next.status)} ${nextStatusText}": ${formatTime(remaining)}</p>
-                `;
-            } else {
-                currentPhaseElement.innerHTML = '<p>Немає даних про поточну фазу</p>';
-            }
-        }
+    // Populate day select
+    Object.keys(schedule[Object.keys(schedule)[0]]).forEach(day => {
+        const option = document.createElement('option');
+        option.value = day;
+        option.textContent = day;
+        daySelect.appendChild(option);
+    });
 
-        function initializeApp() {
-            const daySelect = document.getElementById('daySelect');
-            Object.keys(schedule).forEach(day => {
-                const option = document.createElement('option');
-                option.value = day;
-                option.textContent = day;
-                daySelect.appendChild(option);
-            });
+    groupSelect.addEventListener('change', updateTimeline);
+    daySelect.addEventListener('change', updateTimeline);
 
-            daySelect.value = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'][new Date().getDay()];
-            daySelect.addEventListener('change', updateTimeline);
+    // Set initial values
+    groupSelect.value = Object.keys(schedule)[0];
+    daySelect.value = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'][new Date().getDay()];
 
-            updateTimeline();
-            setInterval(updateTimeline, 60000); // Оновлюємо кожну хвилину
-        }
+    updateTimeline();
+    setInterval(updateTimeline, 60000); // Update every minute
+}
 
-        document.addEventListener('DOMContentLoaded', initializeApp);
+document.addEventListener('DOMContentLoaded', initializeApp);

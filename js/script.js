@@ -465,6 +465,12 @@ function formatTime(hours) {
     return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
 }
 
+function formatDuration(hours) {
+    const h = Math.floor(hours);
+    const m = Math.round((hours - h) * 60);
+    return `${h}г ${m}хв`;
+}
+
 function getPhaseEmoji(status) {
     switch(status) {
         case 'on': return '💡';
@@ -526,7 +532,7 @@ function updateCurrentPhase(group, day, currentHour) {
                                next.status === 'off' ? 'Світла немає' : 'Можливе включення';
 
         currentPhaseElement.innerHTML = `
-            <h3>Поточна фаза: ${getPhaseEmoji(current.status)} ${statusText}</h3>
+            <h3>Поточна фаза: ${getPhaseEmoji(current.status)} ${statusText} буде тривати ще ${formatDuration(remaining)}</h3>
             <div class="progress-bar">
                 <div class="progress ${current.status}" style="width: ${((current.end - currentHour) / (current.end - current.start)) * 100}%"></div>
             </div>
@@ -550,7 +556,8 @@ function initializeApp() {
     });
 
     // Populate day select
-    Object.keys(schedule[Object.keys(schedule)[0]]).forEach(day => {
+    const daysOfWeek = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'];
+    daysOfWeek.forEach(day => {
         const option = document.createElement('option');
         option.value = day;
         option.textContent = day;
@@ -560,9 +567,10 @@ function initializeApp() {
     groupSelect.addEventListener('change', updateTimeline);
     daySelect.addEventListener('change', updateTimeline);
 
-    // Set initial values
-    groupSelect.value = Object.keys(schedule)[0];
-    daySelect.value = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'][new Date().getDay()];
+    // Set default values
+    groupSelect.value = "Група 5";
+    const currentDay = daysOfWeek[new Date().getDay()];
+    daySelect.value = currentDay;
 
     updateTimeline();
     setInterval(updateTimeline, 60000); // Update every minute

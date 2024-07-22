@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графік відключень світла для Групи 5</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Графік відключень світла для Групи 5</h1>
+        <select id="daySelect"></select>
+        <div class="timeline" id="timeline"></div>
+        <div class="time-labels">
+            <span>00:00</span>
+            <span>06:00</span>
+            <span>12:00</span>
+            <span>18:00</span>
+            <span>23:59</span>
+        </div>
+        <div class="current-phase" id="currentPhase"></div>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color on"></div>
+                <span>💡 Світло є</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color maybe"></div>
+                <span>❓ Можливе включення</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color off"></div>
+                <span>🕯️ Світла немає</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

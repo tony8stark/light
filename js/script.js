@@ -1,75 +1,463 @@
 const schedule = {
-            "Понеділок": [
-                { start: 0, end: 2, status: 'off' },
-                { start: 2, end: 5, status: 'maybe' },
-                { start: 5, end: 6, status: 'on' },
-                { start: 6, end: 9, status: 'off' },
-                { start: 9, end: 11, status: 'maybe' },
-                { start: 11, end: 16, status: 'on' },
-                { start: 16, end: 18, status: 'off' },
-                { start: 18, end: 24, status: 'maybe' }
-            ],
-            "Вівторок": [
-                { start: 0, end: 3, status: 'off' },
-                { start: 3, end: 6, status: 'maybe' },
-                { start: 6, end: 10, status: 'on' },
-                { start: 10, end: 13, status: 'off' },
-                { start: 13, end: 16, status: 'maybe' },
-                { start: 16, end: 19, status: 'on' },
-                { start: 19, end: 22, status: 'off' },
-                { start: 22, end: 24, status: 'maybe' }
-            ],
-            "Середа": [
-                { start: 0, end: 2, status: 'on' },
-                { start: 2, end: 5, status: 'off' },
-                { start: 5, end: 8, status: 'maybe' },
-                { start: 8, end: 13, status: 'on' },
-                { start: 13, end: 16, status: 'off' },
-                { start: 16, end: 19, status: 'maybe' },
-                { start: 19, end: 21, status: 'on' },
-                { start: 21, end: 24, status: 'off' }
-            ],
-            "Четвер": [
-                { start: 0, end: 3, status: 'maybe' },
-                { start: 3, end: 6, status: 'on' },
-                { start: 6, end: 9, status: 'off' },
-                { start: 9, end: 12, status: 'maybe' },
-                { start: 12, end: 16, status: 'on' },
-                { start: 16, end: 19, status: 'off' },
-                { start: 19, end: 22, status: 'maybe' },
-                { start: 22, end: 24, status: 'on' }
-            ],
-            "П'ятниця": [
-                { start: 0, end: 3, status: 'off' },
-                { start: 3, end: 6, status: 'maybe' },
-                { start: 6, end: 10, status: 'on' },
-                { start: 10, end: 13, status: 'off' },
-                { start: 13, end: 16, status: 'maybe' },
-                { start: 16, end: 19, status: 'on' },
-                { start: 19, end: 22, status: 'off' },
-                { start: 22, end: 24, status: 'maybe' }
-            ],
-            "Субота": [
-                { start: 0, end: 2, status: 'on' },
-                { start: 2, end: 5, status: 'off' },
-                { start: 5, end: 8, status: 'maybe' },
-                { start: 8, end: 13, status: 'on' },
-                { start: 13, end: 16, status: 'off' },
-                { start: 16, end: 19, status: 'maybe' },
-                { start: 19, end: 21, status: 'on' },
-                { start: 21, end: 24, status: 'off' }
-            ],
-            "Неділя": [
-                { start: 0, end: 3, status: 'maybe' },
-                { start: 3, end: 6, status: 'on' },
-                { start: 6, end: 9, status: 'off' },
-                { start: 9, end: 12, status: 'maybe' },
-                { start: 12, end: 16, status: 'on' },
-                { start: 16, end: 19, status: 'off' },
-                { start: 19, end: 22, status: 'maybe' },
-                { start: 22, end: 24, status: 'on' }
-            ]
-        };
+    "Група 1": {
+        "Понеділок": [
+            { start: 0, end: 1, status: 'maybe' },
+            { start: 1, end: 2, status: 'on' },
+            { start: 2, end: 4, status: 'off' },
+            { start: 4, end: 6, status: 'maybe' },
+            { start: 6, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Вівторок": [
+            { start: 0, end: 3, status: 'on' },
+            { start: 3, end: 6, status: 'off' },
+            { start: 6, end: 9, status: 'maybe' },
+            { start: 9, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 22, status: 'on' },
+            { start: 22, end: 24, status: 'off' }
+        ],
+        "Середа": [
+            { start: 0, end: 3, status: 'maybe' },
+            { start: 3, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "Четвер": [
+            { start: 0, end: 3, status: 'off' },
+            { start: 3, end: 6, status: 'maybe' },
+            { start: 6, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "П'ятниця": [
+            { start: 0, end: 3, status: 'on' },
+            { start: 3, end: 6, status: 'off' },
+            { start: 6, end: 9, status: 'maybe' },
+            { start: 9, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 22, status: 'on' },
+            { start: 22, end: 24, status: 'off' }
+        ],
+        "Субота": [
+            { start: 0, end: 3, status: 'maybe' },
+            { start: 3, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "Неділя": [
+            { start: 0, end: 3, status: 'off' },
+            { start: 3, end: 6, status: 'maybe' },
+            { start: 6, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ]
+    },
+    "Група 2": {
+        "Понеділок": [
+            { start: 0, end: 2, status: 'maybe' },
+            { start: 2, end: 3, status: 'on' },
+            { start: 3, end: 5, status: 'off' },
+            { start: 5, end: 7, status: 'maybe' },
+            { start: 7, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Вівторок": [
+            { start: 0, end: 1, status: 'maybe' },
+            { start: 1, end: 4, status: 'on' },
+            { start: 4, end: 7, status: 'off' },
+            { start: 7, end: 10, status: 'maybe' },
+            { start: 10, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 23, status: 'on' },
+            { start: 23, end: 24, status: 'off' }
+        ],
+        "Середа": [
+            { start: 0, end: 1, status: 'off' },
+            { start: 1, end: 4, status: 'maybe' },
+            { start: 4, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "Четвер": [
+            { start: 0, end: 1, status: 'on' },
+            { start: 1, end: 4, status: 'off' },
+            { start: 4, end: 7, status: 'maybe' },
+            { start: 7, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "П'ятниця": [
+            { start: 0, end: 1, status: 'off' },
+            { start: 1, end: 4, status: 'on' },
+            { start: 4, end: 7, status: 'off' },
+            { start: 7, end: 10, status: 'maybe' },
+            { start: 10, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 23, status: 'on' },
+            { start: 23, end: 24, status: 'off' }
+        ],
+        "Субота": [
+            { start: 0, end: 1, status: 'off' },
+            { start: 1, end: 4, status: 'maybe' },
+            { start: 4, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "Неділя": [
+            { start: 0, end: 1, status: 'on' },
+            { start: 1, end: 4, status: 'off' },
+            { start: 4, end: 7, status: 'maybe' },
+            { start: 7, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ]
+    },
+    "Група 3": {
+        "Понеділок": [
+            { start: 0, end: 3, status: 'maybe' },
+            { start: 3, end: 4, status: 'on' },
+            { start: 4, end: 6, status: 'off' },
+            { start: 6, end: 9, status: 'maybe' },
+            { start: 9, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 21, status: 'on' },
+            { start: 21, end: 24, status: 'off' }
+        ],
+        "Вівторок": [
+            { start: 0, end: 3, status: 'maybe' },
+            { start: 3, end: 6, status: 'on' },
+            { start: 6, end: 9, status: 'off' },
+            { start: 9, end: 12, status: 'maybe' },
+            { start: 12, end: 15, status: 'on' },
+            { start: 15, end: 18, status: 'off' },
+            { start: 18, end: 21, status: 'maybe' },
+            { start: 21, end: 24, status: 'on' }
+        ],
+        "Середа": [
+            { start: 0, end: 3, status: 'off' },
+            { start: 3, end: 6, status: 'maybe' },
+            { start: 6, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 18, status: 'on' },
+            { start: 18, end: 21, status: 'off' },
+            { start: 21, end: 24, status: 'maybe' }
+        ],
+        "Четвер": [
+            { start: 0, end: 3, status: 'on' },
+            { start: 3, end: 6, status: 'off' },
+            { start: 6, end: 9, status: 'maybe' },
+            { start: 9, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 21, status: 'on' },
+            { start: 21, end: 24, status: 'off' }
+        ],
+        "П'ятниця": [
+            { start: 0, end: 3, status: 'maybe' },
+            { start: 3, end: 6, status: 'on' },
+            { start: 6, end: 9, status: 'off' },
+            { start: 9, end: 12, status: 'maybe' },
+            { start: 12, end: 15, status: 'on' },
+            { start: 15, end: 18, status: 'off' },
+            { start: 18, end: 21, status: 'maybe' },
+            { start: 21, end: 24, status: 'on' }
+        ],
+        "Субота": [
+            { start: 0, end: 3, status: 'off' },
+            { start: 3, end: 6, status: 'maybe' },
+            { start: 6, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 18, status: 'on' },
+            { start: 18, end: 21, status: 'off' },
+            { start: 21, end: 24, status: 'maybe' }
+        ],
+        "Неділя": [
+            { start: 0, end: 3, status: 'on' },
+            { start: 3, end: 6, status: 'off' },
+            { start: 6, end: 9, status: 'maybe' },
+            { start: 9, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 21, status: 'on' },
+            { start: 21, end: 24, status: 'off' }
+        ]
+    },
+    "Група 4": {
+        "Понеділок": [
+            { start: 0, end: 4, status: 'maybe' },
+            { start: 4, end: 5, status: 'on' },
+            { start: 5, end: 8, status: 'off' },
+            { start: 8, end: 10, status: 'maybe' },
+            { start: 10, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 22, status: 'on' },
+            { start: 22, end: 24, status: 'off' }
+        ],
+        "Вівторок": [
+            { start: 0, end: 2, status: 'off' },
+            { start: 2, end: 4, status: 'maybe' },
+            { start: 4, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "Середа": [
+            { start: 0, end: 1, status: 'on' },
+            { start: 1, end: 4, status: 'off' },
+            { start: 4, end: 7, status: 'maybe' },
+            { start: 7, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Четвер": [
+            { start: 0, end: 1, status: 'maybe' },
+            { start: 1, end: 4, status: 'on' },
+            { start: 4, end: 7, status: 'off' },
+            { start: 7, end: 10, status: 'maybe' },
+            { start: 10, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 22, status: 'on' },
+            { start: 22, end: 24, status: 'off' }
+        ],
+        "П'ятниця": [
+            { start: 0, end: 1, status: 'off' },
+            { start: 1, end: 4, status: 'maybe' },
+            { start: 4, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "Субота": [
+            { start: 0, end: 1, status: 'on' },
+            { start: 1, end: 4, status: 'off' },
+            { start: 4, end: 7, status: 'maybe' },
+            { start: 7, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Неділя": [
+            { start: 0, end: 1, status: 'maybe' },
+            { start: 1, end: 4, status: 'on' },
+            { start: 4, end: 7, status: 'off' },
+            { start: 7, end: 10, status: 'maybe' },
+            { start: 10, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 22, status: 'on' },
+            { start: 22, end: 24, status: 'off' }
+        ]
+    },
+    "Група 5": {
+        "Понеділок": [
+            { start: 0, end: 2, status: 'off' },
+            { start: 2, end: 5, status: 'maybe' },
+            { start: 5, end: 6, status: 'on' },
+            { start: 6, end: 9, status: 'off' },
+            { start: 9, end: 11, status: 'maybe' },
+            { start: 11, end: 16, status: 'on' },
+            { start: 16, end: 18, status: 'off' },
+            { start: 18, end: 24, status: 'maybe' }
+        ],
+        "Вівторок": [
+            { start: 0, end: 3, status: 'off' },
+            { start: 3, end: 6, status: 'maybe' },
+            { start: 6, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Середа": [
+            { start: 0, end: 2, status: 'on' },
+            { start: 2, end: 5, status: 'off' },
+            { start: 5, end: 8, status: 'maybe' },
+            { start: 8, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 21, status: 'on' },
+            { start: 21, end: 24, status: 'off' }
+        ],
+        "Четвер": [
+            { start: 0, end: 3, status: 'maybe' },
+            { start: 3, end: 6, status: 'on' },
+            { start: 6, end: 9, status: 'off' },
+            { start: 9, end: 12, status: 'maybe' },
+            { start: 12, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "П'ятниця": [
+            { start: 0, end: 3, status: 'off' },
+            { start: 3, end: 6, status: 'maybe' },
+            { start: 6, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Субота": [
+            { start: 0, end: 2, status: 'on' },
+            { start: 2, end: 5, status: 'off' },
+            { start: 5, end: 8, status: 'maybe' },
+            { start: 8, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 21, status: 'on' },
+            { start: 21, end: 24, status: 'off' }
+        ],
+        "Неділя": [
+            { start: 0, end: 3, status: 'maybe' },
+            { start: 3, end: 6, status: 'on' },
+            { start: 6, end: 9, status: 'off' },
+            { start: 9, end: 12, status: 'maybe' },
+            { start: 12, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ]
+    },
+    "Група 6": {
+        "Понеділок": [
+            { start: 0, end: 1, status: 'on' },
+            { start: 1, end: 3, status: 'off' },
+            { start: 3, end: 6, status: 'maybe' },
+            { start: 6, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "Вівторок": [
+            { start: 0, end: 1, status: 'on' },
+            { start: 1, end: 4, status: 'off' },
+            { start: 4, end: 7, status: 'maybe' },
+            { start: 7, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Середа": [
+            { start: 0, end: 1, status: 'maybe' },
+            { start: 1, end: 4, status: 'on' },
+            { start: 4, end: 7, status: 'off' },
+            { start: 7, end: 10, status: 'maybe' },
+            { start: 10, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 22, status: 'on' },
+            { start: 22, end: 24, status: 'off' }
+        ],
+        "Четвер": [
+            { start: 0, end: 1, status: 'off' },
+            { start: 1, end: 4, status: 'maybe' },
+            { start: 4, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ],
+        "П'ятниця": [
+            { start: 0, end: 1, status: 'on' },
+            { start: 1, end: 4, status: 'off' },
+            { start: 4, end: 7, status: 'maybe' },
+            { start: 7, end: 10, status: 'on' },
+            { start: 10, end: 13, status: 'off' },
+            { start: 13, end: 16, status: 'maybe' },
+            { start: 16, end: 19, status: 'on' },
+            { start: 19, end: 22, status: 'off' },
+            { start: 22, end: 24, status: 'maybe' }
+        ],
+        "Субота": [
+            { start: 0, end: 1, status: 'maybe' },
+            { start: 1, end: 4, status: 'on' },
+            { start: 4, end: 7, status: 'off' },
+            { start: 7, end: 10, status: 'maybe' },
+            { start: 10, end: 13, status: 'on' },
+            { start: 13, end: 16, status: 'off' },
+            { start: 16, end: 19, status: 'maybe' },
+            { start: 19, end: 22, status: 'on' },
+            { start: 22, end: 24, status: 'off' }
+        ],
+        "Неділя": [
+            { start: 0, end: 1, status: 'off' },
+            { start: 1, end: 4, status: 'maybe' },
+            { start: 4, end: 7, status: 'on' },
+            { start: 7, end: 10, status: 'off' },
+            { start: 10, end: 13, status: 'maybe' },
+            { start: 13, end: 16, status: 'on' },
+            { start: 16, end: 19, status: 'off' },
+            { start: 19, end: 22, status: 'maybe' },
+            { start: 22, end: 24, status: 'on' }
+        ]
+    }
+};
 
         function formatTime(hours) {
             const h = Math.floor(hours);
